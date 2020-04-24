@@ -41,4 +41,14 @@ Then you are ready to transcribe!
 
 #### References
 
+Our report can be obtained from Research Gate -
 https://www.researchgate.net/project/Speech-Recognition-and-Emotion-Detection-in-English-and-German
+
+We primarily utilized Mozilla DeepSpeech -
+https://github.com/mozilla/DeepSpeech
+
+English sentiment analysis -
+https://www.liip.ch/en/blog/sentiment-detection-with-keras-word-embeddings-and-lstm-deep-learning-networks
+
+German sentiment analysis -
+https://textblob-de.readthedocs.io/
