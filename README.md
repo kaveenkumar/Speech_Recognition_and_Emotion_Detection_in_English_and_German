@@ -34,7 +34,7 @@ $ python3 audioTranscript_gui.py
 ```
 
 Then browse the Model folder that contains model, trie and LM 
-After that browse the audio file that needs to be 16000kz.
+After that browse the audio file that needs to be 16KHz.
 
 Then you are ready to transcribe!
 
