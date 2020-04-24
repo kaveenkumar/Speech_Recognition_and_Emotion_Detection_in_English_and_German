@@ -37,3 +37,8 @@ Then browse the Model folder that contains model, trie and LM
 After that browse the audio file that needs to be 16000kz.
 
 Then you are ready to transcribe!
+
+
+#### References
+
+https://www.researchgate.net/project/Speech-Recognition-and-Emotion-Detection-in-English-and-German
