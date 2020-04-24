@@ -51,4 +51,4 @@ English sentiment analysis -
 https://www.liip.ch/en/blog/sentiment-detection-with-keras-word-embeddings-and-lstm-deep-learning-networks
 
 German sentiment analysis -
-https://textblob-de.readthedocs.io/
+https://textblob-de.readthedocs.io
