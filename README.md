@@ -1,43 +1,46 @@
-## Transcribing audio clips
+## English and German Audio Transcriber
 ```
-The Command and GUI tools perform transcription on long wav files.
-They take in a wav file of any duration, use the WebRTC Voice Activity Detector (VAD)
-to split it into smaller chunks and finally save a consolidated transcript.
+A Linux based application that can transcribe audio file of English or German to text. Consecutively it can also detect the sentiment in the text.
 ```
 ### 0. Prerequisites
 ```
 Setup your environment
 
-
+If virtual environment is not installed on your Linux machine -
 $ sudo apt install virtualenv
-$ cd ~/vad_transcriber
+
+Navigate to your Transcriber directory (or create one)
+Clone this git content
+
+Initiate and activate a venv -
 $ virtualenv -p python3 venv
 $ source venv/bin/activate
+
+Install the prerequisites -
 (venv)$ pip3 install -r requirements.txt
 ```
+### 1. Download Models and Sample Audio files
 
+[click here](https://drive.google.com/open?id=1wuhkZ3b5jKfoNIDfaEzrdg-KZVagk-lS)
 
-### 1. Download Models and audio files
+### 2. Transcribing / GUI working
 
-
-[click here](https:)
-
-
-
-### 2. Staring the GUI
-
-The GUI tool does the same job as the CLI tool.
-The output is displayed in the transcription window and saved into the directory as the input
-audio file as well.
 ```
 $ python3 audioTranscript_gui.py
 ```
+Steps -
+1) Choose input: Microphone recording or file upload
+2) Choose the language: English or German
+3) Browse for the wav file if file upload chosen
+4) Browse for the model and supporting files directory: Models/english or Models/german from
+5) Click on 'Start speaking' for microphone or 'Transcrive wav' for file upload
 
-Then browse the Model folder that contains model, trie and LM 
-After that browse the audio file that needs to be 16KHz.
+The GUI tool performs transcription on long wav files.
+It takes in a wav file of sample rate 16KHz of any duration, then uses the WebRTC Voice Activity Detector (VAD) to split it into smaller chunks and finally save a consolidated transcript in the source audio directory.
 
-Then you are ready to transcribe!
+The output of text and sentiment is displayed on the transcription window.
 
+Enjoy! :')
 
 ## References
 
