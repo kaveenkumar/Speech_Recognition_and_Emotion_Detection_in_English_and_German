@@ -330,7 +330,7 @@ class App(QMainWindow):
             context[1].wait()
             self.show()
             progress_callback.emit(transcript)
-            return "\n*********************\nSuccess!"
+            return "\n--------------------\nSuccess!"
 
     def micFinish(self):
         self.openMicrophone.setText("Start Speaking")
@@ -367,7 +367,7 @@ class App(QMainWindow):
 
             print(chunk,' , ',sentiment)
             self.textboxTranscript.insertPlainText("Transcription === " +chunk)
-            self.textboxTranscript.insertPlainText("\n*********************")
+            self.textboxTranscript.insertPlainText("\n--------------------")
 
             self.textboxTranscript.insertPlainText("\nSentiment === "+sentiment)
             self.show()
@@ -391,7 +391,7 @@ class App(QMainWindow):
 
             print(chunk,' , ',sentiment)
             self.textboxTranscript.insertPlainText("Transcription === " +chunk)
-            self.textboxTranscript.insertPlainText("\n*********************")
+            self.textboxTranscript.insertPlainText("\n--------------------")
 
             self.textboxTranscript.insertPlainText("\nSentiment === "+sentiment)
             self.show()    
@@ -429,7 +429,7 @@ class App(QMainWindow):
         print("\n%-30s %-20s %-20s %-20s %s" % (title_names[0], title_names[1], title_names[2], title_names[3], title_names[4]))
         print("%-30s %-20.3f %-20.3f %-20.3f %-0.3f" % (filename + ext, audio_length, inference_time, self.model[1], self.model[2]))
 
-        return "\n*********************\nSuccess!"
+        return "\n---------------\nSuccess!"
 
 
 def main(args):
