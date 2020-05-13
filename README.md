@@ -1,6 +1,7 @@
 ## English and German Audio Transcriber
 ```
-A Linux based application that can transcribe audio file of English or German to text. Consecutively it can also detect the sentiment in the text.
+A Linux based application that can transcribe audio file of English or German to text.
+Consecutively it can also detect the sentiment in the text.
 ```
 ### 0. Prerequisites
 ```
