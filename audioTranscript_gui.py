@@ -358,14 +358,15 @@ class App(QMainWindow):
             blob.noun_phrases
             sent = blob.sentiment
             sentiment=""
-            if sent[0] < 1:
+            if sent[0] < -0.20:
                 sentiment="Nicht Gut"
-            elif -0.80 < sent[0] < 0.20:
-                sentiment="Neutral"
-            else:
+            elif sent[0] > 0.20:
                 sentiment="Gut"
+            else:
+                sentiment="Neutral"
 
-            print(chunk,' , ',sentiment)
+
+            print(chunk,' , ',sentiment, ',', sent[0])
             self.textboxTranscript.insertPlainText("Transcription === " +chunk)
             self.textboxTranscript.insertPlainText("\n--------------------")
 
@@ -382,14 +383,14 @@ class App(QMainWindow):
             
 
             sentiment=""
-            if sent[0] < .60:
-                sentiment="Not Happy"
-            elif -0.80 < sent[0] < 0.20:
-                sentiment="Neutral"
-            else:
+            if sent[0] < -0.20:
+                sentiment="Not happy"
+            elif sent[0] > 0.20:
                 sentiment="Happy"
+            else:
+                sentiment="Neutral"
 
-            print(chunk,' , ',sentiment)
+            print(chunk,' , ',sentiment, ',', sent[0])
             self.textboxTranscript.insertPlainText("Transcription === " +chunk)
             self.textboxTranscript.insertPlainText("\n--------------------")
 
