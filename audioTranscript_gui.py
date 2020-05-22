@@ -20,22 +20,7 @@ logging.basicConfig(stream=sys.stderr,
 
 
 class WorkerSignals(QObject):
-    '''
-    Defines the signals available from a running worker thread.
-    Supported signals are:
 
-    finished:
-        No data
-
-    error
-       'tuple' (ecxtype, value, traceback.format_exc())
-
-    result
-        'object' data returned from processing, anything
-
-    progress
-            'object' indicating the transcribed result
-    '''
 
     finished = pyqtSignal()
     error = pyqtSignal(tuple)
@@ -95,13 +80,39 @@ class App(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.title = 'English and German Audio Transcriber'
+        self.title = 'Audio Transcriber & Sentiment Detector'
         self.left = 10
         self.top = 10
         self.width = 600
         self.height = 400
         self.initUI()
+        
 
+
+    def models_on_click(self):
+        text = str(self.combo.currentText())
+        if text=='German':
+          logging.debug('Models Browse Button clicked')
+          self.dirName = "/home/kiuzzaxk/Documents/Transcriber/Models/german"
+        else:
+            self.dirName = "/home/kiuzzaxk/Documents/Transcriber/Models/english"
+        if self.dirName:
+            #self.modelsBox.setText(self.dirName)
+            #logging.debug(self.dirName)
+
+            # Threaded signal passing worker functions
+            worker = Worker(self.modelWorker, self.dirName)
+            worker.signals.result.connect(self.modelResult)
+            worker.signals.finished.connect(self.modelFinish)
+            worker.signals.progress.connect(self.modelProgress)
+
+            # Execute
+            self.threadpool.start(worker)
+        else:
+            logging.critical("*****************************************************")
+            logging.critical("Model path not specified..")
+            logging.critical("*****************************************************")
+            return "Transcription Failed, models path not specified"
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
@@ -115,24 +126,24 @@ class App(QMainWindow):
         self.combo.addItem("German")
         
         self.browseBox = QLineEdit(self, placeholderText="Audio file")
-        self.modelsBox = QLineEdit(self, placeholderText="Model directory for specific language")
+        #self.modelsBox = QLineEdit(self, placeholderText="Directory path for output_graph, alphabet, lm & trie")
         self.textboxTranscript = QPlainTextEdit(self, placeholderText="Transcription")
         self.browseButton = QPushButton('Browse', self)
         self.browseButton.setToolTip('Select a wav file')
-        self.modelsButton = QPushButton('Browse', self)
-        self.modelsButton.setToolTip('Select model folder')
+        #self.modelsButton = QPushButton('Browse', self)
+        #self.modelsButton.setToolTip('Select deepspeech models folder')
         self.transcribeWav = QPushButton('Transcribe Wav', self)
         self.transcribeWav.setToolTip('Start Wav Transcription')
         self.openMicrophone = QPushButton('Start Speaking', self)
         self.openMicrophone.setToolTip('Open Microphone')
 
-        layout.addWidget(self.microphone, 0, .1, 1, 2)
-        layout.addWidget(self.fileUpload, 0, 2, 1, 2)
-        layout.addWidget(self.combo, 0, 3,1,2)
+        layout.addWidget(self.microphone, 0, 2, 1, 2)
+        layout.addWidget(self.fileUpload, 0, 3, 1, 2)
+        layout.addWidget(self.combo, 0, .1, 1, 2)
         layout.addWidget(self.browseBox, 1, 0, 1, 4)
         layout.addWidget(self.browseButton, 1, 4)
-        layout.addWidget(self.modelsBox, 2, 0, 1, 4)
-        layout.addWidget(self.modelsButton, 2, 4)
+       # layout.addWidget(self.modelsBox, 2, 0, 1, 4)
+       # layout.addWidget(self.modelsButton, 2, 4)
         layout.addWidget(self.transcribeWav, 3, 1, 1, 1)
         layout.addWidget(self.openMicrophone, 3, 3, 1, 1)
         layout.addWidget(self.textboxTranscript, 5, 0, -1, 0)
@@ -144,6 +155,7 @@ class App(QMainWindow):
 
         # Microphone
         self.microphone.clicked.connect(self.mic_activate)
+        self.microphone.clicked.connect(self.models_on_click)
 
         # File Upload
         self.fileUpload.clicked.connect(self.wav_activate)
@@ -152,7 +164,7 @@ class App(QMainWindow):
         self.browseButton.clicked.connect(self.browse_on_click)
 
         # Connect the Models Button
-        self.modelsButton.clicked.connect(self.models_on_click)
+        #self.modelsButton.clicked.connect(self.models_on_click)
 
         # Connect Transcription button to threadpool
         self.transcribeWav.clicked.connect(self.transcriptionStart_on_click)
@@ -164,8 +176,8 @@ class App(QMainWindow):
 
         self.browseButton.setEnabled(False)
         self.browseBox.setEnabled(False)
-        self.modelsBox.setEnabled(False)
-        self.modelsButton.setEnabled(False)
+        #self.modelsBox.setEnabled(False)
+        #self.modelsButton.setEnabled(False)
         self.transcribeWav.setEnabled(False)
         self.openMicrophone.setEnabled(False)
 
@@ -181,8 +193,8 @@ class App(QMainWindow):
         self.en_mic = True
         self.browseButton.setEnabled(False)
         self.browseBox.setEnabled(False)
-        self.modelsBox.setEnabled(True)
-        self.modelsButton.setEnabled(True)
+        #self.modelsBox.setEnabled(True)
+        #self.modelsButton.setEnabled(True)
         self.transcribeWav.setEnabled(False)
         self.openMicrophone.setStyleSheet('QPushButton {background-color: #70cc7c; color: black;}')
         self.openMicrophone.setEnabled(True)
@@ -195,11 +207,13 @@ class App(QMainWindow):
         self.openMicrophone.setEnabled(False)
         self.browseButton.setEnabled(True)
         self.browseBox.setEnabled(True)
-        self.modelsBox.setEnabled(True)
-        self.modelsButton.setEnabled(True)
+        #self.modelsBox.setEnabled(True)
+        #self.modelsButton.setEnabled(True)
 
     @pyqtSlot()
     def browse_on_click(self):
+        self.models_on_click()
+        
         logging.debug('Browse button clicked')
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
@@ -208,30 +222,11 @@ class App(QMainWindow):
             self.browseBox.setText(self.fileName)
             self.transcribeWav.setEnabled(True)
             logging.debug(self.fileName)
-
-    @pyqtSlot()
-    def models_on_click(self):
-        logging.debug('Models Browse Button clicked')
-        self.dirName = QFileDialog.getExistingDirectory(self, "Select model directory for specific language")
-        if self.dirName:
-            self.modelsBox.setText(self.dirName)
-            logging.debug(self.dirName)
-
-            # Threaded signal passing worker functions
-            worker = Worker(self.modelWorker, self.dirName)
-            worker.signals.result.connect(self.modelResult)
-            worker.signals.finished.connect(self.modelFinish)
-            worker.signals.progress.connect(self.modelProgress)
-
-            # Execute
-            self.threadpool.start(worker)
-        else:
-            logging.critical("*****************************************************")
-            logging.critical("Model path not specified..")
-            logging.critical("*****************************************************")
-            return "Transcription Failed, models path not specified"
+        
+   
 
     def modelWorker(self, dirName, progress_callback):
+        
         self.textboxTranscript.setPlainText("Loading Models...")
         self.openMicrophone.setStyleSheet('QPushButton {background-color: #f7f7f7; color: black;}')
         self.openMicrophone.setEnabled(False)
@@ -277,7 +272,7 @@ class App(QMainWindow):
     @pyqtSlot()
     def openMicrophone_on_click(self):
         logging.debug('Preparing to open microphone...')
-
+        
         # Clear out older data
         self.textboxTranscript.setPlainText("")
         self.show()
@@ -294,9 +289,9 @@ class App(QMainWindow):
             subproc = subprocess.Popen(shlex.split('rec -q -V0 -e signed -L -c 1 -b 16 -r 16k -t raw - gain -2'),
                                        stdout=subprocess.PIPE,
                                        bufsize=0)
-            self.textboxTranscript.insertPlainText('You can start speaking now\n\n')
+            self.textboxTranscript.insertPlainText('Speak now\n\n')
             self.show()
-            logging.debug('You can start speaking now')
+            logging.debug('Speak now')
             context = (sctx, subproc, self.model[0])
 
             # Pass the state to streaming worker
@@ -319,6 +314,7 @@ class App(QMainWindow):
                     3. Deepspeech model object
     '''
     def micWorker(self, context, progress_callback):
+        
         # Deepspeech Streaming will be run from this method
         logging.debug("Recording from your microphone")
         while (not self.openMicrophone.isChecked()):
@@ -359,12 +355,11 @@ class App(QMainWindow):
             sent = blob.sentiment
             sentiment=""
             if sent[0] < -0.20:
-                sentiment="Nicht Gut"
+                sentiment="Nicht Glücklich"
             elif sent[0] > 0.20:
-                sentiment="Gut"
+                sentiment="Glücklich"
             else:
                 sentiment="Neutral"
-
 
             print(chunk,' , ',sentiment, ',', sent[0])
             self.textboxTranscript.insertPlainText("Transcription === " +chunk)
@@ -390,7 +385,7 @@ class App(QMainWindow):
             else:
                 sentiment="Neutral"
 
-            print(chunk,' , ',sentiment, ',', sent[0])
+            print(chunk,' , ',sentiment , sent[0])
             self.textboxTranscript.insertPlainText("Transcription === " +chunk)
             self.textboxTranscript.insertPlainText("\n--------------------")
 
@@ -437,7 +432,8 @@ def main(args):
     app = QApplication(sys.argv)
     w = App()
     sys.exit(app.exec_())
-
+    
 
 if __name__ == '__main__':
     main(sys.argv[1:])
+    
