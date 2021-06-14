@@ -47,7 +47,7 @@ python -m textblob.download_corpora
 ```
 
 ### 1. Download Models and Sample Audio files
-The model files are too large to be uploaded on GitHub. Hence download them from here [click here](https://drive.google.com/drive/folders/1OMx3zi6q813oV216YNL4WLRbbTn1_Hrg?usp=sharing)
+The model files are too large to be uploaded on GitHub. Hence download them from here [click here](https://drive.google.com/drive/folders/1wuhkZ3b5jKfoNIDfaEzrdg-KZVagk-lS?usp=sharing)
 
 Once the model files are downloaded, move them to the proper storage structure such that the main file can read them.
 Directory structure to follow:
