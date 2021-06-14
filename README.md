@@ -87,8 +87,8 @@ python3 transcriber_gui.py
 Steps -
 1) Choose the language: English or German
 2) Choose input: Microphone or file upload
-2.1) Browse for the wav file if file upload chosen
-3) Click on 'Start speaking' for microphone or 'Transcribe wav' for file upload
+3) Browse for the wav file if file upload chosen
+4) Click on 'Start speaking' for microphone or 'Transcribe wav' for file upload
 
 The GUI tool performs transcription on long wav files.
 It takes in a wav file of sample rate 16KHz of any duration, then uses the WebRTC Voice Activity Detector (VAD) to split it into smaller chunks and finally save a consolidated transcript in the source audio directory.
