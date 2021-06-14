@@ -31,8 +31,35 @@ run the following command to download it
 $ python -m textblob.download_corpora
 ```
 ### 1. Download Models and Sample Audio files
+The model files are too large to be uploaded on GitHub. Hence download them from here [click here](https://drive.google.com/drive/folders/1OMx3zi6q813oV216YNL4WLRbbTn1_Hrg?usp=sharing)
 
-[click here](https://drive.google.com/open?id=1wuhkZ3b5jKfoNIDfaEzrdg-KZVagk-lS)
+Once the model files are downloaded, move them to the proper storage structure such that the main file can read them.
+Directory structure:
+
+~(home/user/)
+ ----Speech_Recognition_and_Emotion_Detection_in_English_and_German
+     ----audio
+         ----english
+             ----audio_file_sample.wav
+         ----german
+             ----audio_file_sample.wav
+     ----models
+         ----english
+             ----alphabet.txt
+             ----lm.binary
+             ----output_graph.pb
+             ----trie
+         ----german
+             ----alphabet.txt
+             ----lm.binary
+             ----output_graph.pb
+             ----trie
+    ----requirements
+        ----requirements.txt
+    ----tools
+        ----wavSplit.py
+        ----wavTranscriber.py
+    ----transcriber_gui.py
 
 ### 2. Transcribing / Working with GUI
 Simply run the below command to launch the GUI
