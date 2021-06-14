@@ -37,12 +37,9 @@ Once the model files are downloaded, move them to the proper storage structure s
 Directory structure:
 
 ~(home/user/)
-
- ----Speech_Recognition_and_Emotion_Detection_in_English_and_German
- 
-     ----audio
-     
-         ----english
+ |----Speech_Recognition_and_Emotion_Detection_in_English_and_German
+     |----audio
+         |----english
          
              ----audio_file_sample.wav
              
