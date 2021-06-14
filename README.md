@@ -90,9 +90,6 @@ Steps -
 3) Browse for the wav file if file upload chosen
 4) Click on 'Start speaking' for microphone or 'Transcribe wav' for file upload
 
-The GUI tool performs transcription on long wav files.
-It takes in a wav file of sample rate 16KHz of any duration, then uses the WebRTC Voice Activity Detector (VAD) to split it into smaller chunks and finally save a consolidated transcript in the source audio directory.
-
 The output of text and sentiment is displayed on the transcription window.
 
 Enjoy! :')
