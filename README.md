@@ -60,7 +60,7 @@ Directory structure to follow:
              |----audio_file_sample.wav
           |----german
              |----audio_file_sample.wav
-     |----**models**
+     |----models
           |----english
              |----alphabet.txt
              |----lm.binary
