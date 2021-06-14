@@ -4,6 +4,8 @@
 A Linux based application that can transcribe audio file of English or German to text.
 Consecutively it can also detect the sentiment in the text.
 ```
+![image](https://user-images.githubusercontent.com/38073885/121904567-9578b080-cd29-11eb-8663-733b9ab879d2.png)
+
 ### 0. Prerequisites
 
 Setup your environment
