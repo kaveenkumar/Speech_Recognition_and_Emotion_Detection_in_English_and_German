@@ -34,8 +34,9 @@ $ python -m textblob.download_corpora
 The model files are too large to be uploaded on GitHub. Hence download them from here [click here](https://drive.google.com/drive/folders/1OMx3zi6q813oV216YNL4WLRbbTn1_Hrg?usp=sharing)
 
 Once the model files are downloaded, move them to the proper storage structure such that the main file can read them.
-Directory structure:
+Directory structure to follow:
 
+```
 ~(home/user/)
  |----Speech_Recognition_and_Emotion_Detection_in_English_and_German
      |----audio
@@ -60,6 +61,7 @@ Directory structure:
         |----wavSplit.py
         |----wavTranscriber.py
     |----transcriber_gui.py 
+```
 
 ### 2. Transcribing / Working with GUI
 Simply run the below command to launch the GUI
