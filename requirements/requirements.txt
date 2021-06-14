@@ -1,0 +1,5 @@
+deepspeech==0.4.1
+webrtcvad
+pyqt5
+textblob
+textblob_de
