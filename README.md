@@ -1,4 +1,4 @@
-# English and German Audio Transcriber + Emotion detector 
+# English and German Audio Transcriber + Emotion Detector 
 ## Speech-to-Text + Sentiment Analysis
 ```
 A Linux based application that can transcribe audio file of English or German to text.
