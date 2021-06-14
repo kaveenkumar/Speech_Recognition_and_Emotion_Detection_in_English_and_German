@@ -24,7 +24,7 @@ $ virtualenv -p python3 venv
 $ source venv/bin/activate
 
 Install the prerequisites -
-(venv)$ pip3 install -r requirements.txt
+(venv)$ pip3 install -r requirements/requirements.txt
 
 For sentiment analysis we user the corpora from textblob
 run the following command to download it
