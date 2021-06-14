@@ -25,6 +25,10 @@ $ source venv/bin/activate
 
 Install the prerequisites -
 (venv)$ pip3 install -r requirements.txt
+
+For sentiment analysis we user the corpora from textblob
+run the following command to download it
+$ python -m textblob.download_corpora
 ```
 ### 1. Download Models and Sample Audio files
 
@@ -48,6 +52,9 @@ It takes in a wav file of sample rate 16KHz of any duration, then uses the WebRT
 The output of text and sentiment is displayed on the transcription window.
 
 Enjoy! :')
+
+**Note**: if you notice the GUI crashing, please remember to follow this procedure:
+Everytime you want to change between 'mic' and 'file upload', always remember to follow this sequence - 'click on language' -> 'click on mic / file' -> 'click on start speaking / transcribe wav'. If you want to change from file_upload to mic (or mic to file), always click on language first and then mic and then start speaking.
 
 ## References
 
