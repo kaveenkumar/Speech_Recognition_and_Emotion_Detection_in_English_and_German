@@ -56,27 +56,27 @@ Directory structure to follow:
 ~(home/user/)
  |----Speech_Recognition_and_Emotion_Detection_in_English_and_German
      |----audio
-         |----english
+          |----english
              |----audio_file_sample.wav
-         |----german
+          |----german
              |----audio_file_sample.wav
      |----models
-         |----english
+          |----english
              |----alphabet.txt
              |----lm.binary
              |----output_graph.pb
              |----trie
-         |----german
+          |----german
              |----alphabet.txt
              |----lm.binary
              |----output_graph.pb
              |----trie
-    |----requirements
-        |----requirements.txt
-    |----tools
-        |----wavSplit.py
-        |----wavTranscriber.py
-    |----transcriber_gui.py 
+     |----requirements
+          |----requirements.txt
+     |----tools
+          |----wavSplit.py
+          |----wavTranscriber.py
+     |----transcriber_gui.py 
 ```
 
 ### 2. Transcribing / Working with GUI
