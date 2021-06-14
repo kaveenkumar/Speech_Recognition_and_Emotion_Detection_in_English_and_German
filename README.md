@@ -5,31 +5,47 @@ A Linux based application that can transcribe audio file of English or German to
 Consecutively it can also detect the sentiment in the text.
 ```
 ### 0. Prerequisites
-```
+
 Setup your environment
 
 If virtual environment is not installed on your Linux machine -
-$ sudo apt install virtualenv
+```
+sudo apt install virtualenv
+```
 
 Navigate to your Transcriber directory (or create one)
-$ mkdir transcriber
-$ cd transcriber
+```
+mkdir transcriber
+cd transcriber
+```
 
 Clone this git content
-$ git clone https://github.com/kaveenkumar/Speech_Recognition_and_Emotion_Detection_in_English_and_German.git
-$ cd Speech_Recognition_and_Emotion_Detection_in_English_and_German
+```
+git clone https://github.com/kaveenkumar/Speech_Recognition_and_Emotion_Detection_in_English_and_German.git
+cd Speech_Recognition_and_Emotion_Detection_in_English_and_German
+```
 
-Initiate and activate a venv -
-$ virtualenv -p python3 venv
-$ source venv/bin/activate
+Initiate and activate a venv
+```
+virtualenv -p python3 transcriber
+source transcriber/bin/activate
+```
+or 
+```
+mkvirtualenv transcriber
+```
 
-Install the prerequisites -
-(venv)$ pip3 install -r requirements/requirements.txt
+Install the prerequisites inside venv
+```
+(transcriber)pip3 install -r requirements/requirements.txt
+```
 
 For sentiment analysis we user the corpora from textblob
 run the following command to download it
-$ python -m textblob.download_corpora
 ```
+python -m textblob.download_corpora
+```
+
 ### 1. Download Models and Sample Audio files
 The model files are too large to be uploaded on GitHub. Hence download them from here [click here](https://drive.google.com/drive/folders/1OMx3zi6q813oV216YNL4WLRbbTn1_Hrg?usp=sharing)
 
@@ -66,7 +82,7 @@ Directory structure to follow:
 ### 2. Transcribing / Working with GUI
 Simply run the below command to launch the GUI
 ```
-$ python3 transcriber_gui.py
+python3 transcriber_gui.py
 ```
 Steps -
 1) Choose the language: English or German
