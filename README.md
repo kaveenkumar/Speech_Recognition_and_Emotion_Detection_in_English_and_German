@@ -37,7 +37,7 @@ mkvirtualenv transcriber
 
 Install the prerequisites inside venv
 ```
-(transcriber)pip3 install -r requirements/requirements.txt
+(transcriber) pip3 install -r requirements/requirements.txt
 ```
 
 For sentiment analysis we user the corpora from textblob
