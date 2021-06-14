@@ -40,47 +40,26 @@ Directory structure:
  |----Speech_Recognition_and_Emotion_Detection_in_English_and_German
      |----audio
          |----english
-         
-             ----audio_file_sample.wav
-             
-         ----german
-         
-             ----audio_file_sample.wav
-             
-     ----models
-     
-         ----english
-         
-             ----alphabet.txt
-             
-             ----lm.binary
-             
-             ----output_graph.pb
-             
-             ----trie
-             
-         ----german
-         
-             ----alphabet.txt
-             
-             ----lm.binary
-             
-             ----output_graph.pb
-             
-             ----trie
-             
-    ----requirements
-    
-        ----requirements.txt
-        
-    ----tools
-    
-        ----wavSplit.py
-        
-        ----wavTranscriber.py
-        
-    ----transcriber_gui.py
-    
+             |----audio_file_sample.wav
+         |----german
+             |----audio_file_sample.wav
+     |----models
+         |----english
+             |----alphabet.txt
+             |----lm.binary
+             |----output_graph.pb
+             |----trie
+         |----german
+             |----alphabet.txt
+             |----lm.binary
+             |----output_graph.pb
+             |----trie
+    |----requirements
+        |----requirements.txt
+    |----tools
+        |----wavSplit.py
+        |----wavTranscriber.py
+    |----transcriber_gui.py 
 
 ### 2. Transcribing / Working with GUI
 Simply run the below command to launch the GUI
