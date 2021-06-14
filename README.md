@@ -1,4 +1,4 @@
-## English and German Audio Transcriber
+## English and German Audio Transcriber | Speech-to-Text
 ```
 A Linux based application that can transcribe audio file of English or German to text.
 Consecutively it can also detect the sentiment in the text.
@@ -11,7 +11,12 @@ If virtual environment is not installed on your Linux machine -
 $ sudo apt install virtualenv
 
 Navigate to your Transcriber directory (or create one)
+$ mkdir transcriber
+$ cd transcriber
+
 Clone this git content
+$ git clone https://github.com/kaveenkumar/Speech_Recognition_and_Emotion_Detection_in_English_and_German.git
+$ cd Speech_Recognition_and_Emotion_Detection_in_English_and_German
 
 Initiate and activate a venv -
 $ virtualenv -p python3 venv
@@ -24,8 +29,8 @@ Install the prerequisites -
 
 [click here](https://drive.google.com/open?id=1wuhkZ3b5jKfoNIDfaEzrdg-KZVagk-lS)
 
-### 2. Transcribing / GUI working
-
+### 2. Transcribing / Working with GUI
+Simply run the below command to launch the GUI
 ```
 $ python3 audioTranscript_gui.py
 ```
@@ -34,7 +39,7 @@ Steps -
 2) Choose the language: English or German
 3) Browse for the wav file if file upload chosen
 4) Browse for the model and supporting files directory: Models/english or Models/german from
-5) Click on 'Start speaking' for microphone or 'Transcrive wav' for file upload
+5) Click on 'Start speaking' for microphone or 'Transcribe wav' for file upload
 
 The GUI tool performs transcription on long wav files.
 It takes in a wav file of sample rate 16KHz of any duration, then uses the WebRTC Voice Activity Detector (VAD) to split it into smaller chunks and finally save a consolidated transcript in the source audio directory.
