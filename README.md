@@ -9,6 +9,8 @@ Based on our published paper - [German Speech Recognition System using DeepSpeec
 
 ![image](https://user-images.githubusercontent.com/38073885/122025881-07083b80-cdca-11eb-9826-0fa2f9082fc4.png)
 
+![image](https://user-images.githubusercontent.com/38073885/122027470-6f0b5180-cdcb-11eb-9bef-26e801ea5ce4.png)
+
 ### 0. Prerequisites
 
 Setup your environment
