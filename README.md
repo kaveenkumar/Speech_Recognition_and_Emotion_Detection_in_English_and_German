@@ -47,14 +47,14 @@ Install the prerequisites inside venv
 (transcriber) pip3 install -r requirements/requirements.txt
 ```
 
-For sentiment analysis we user the corpora from textblob
+For sentiment analysis we use the corpora from textblob.
 run the following command to download it
 ```
 python -m textblob.download_corpora
 ```
 
 ### 1. Download Models and Sample Audio files
-The model files are too large to be uploaded on GitHub. Hence download them from here [click here](https://drive.google.com/drive/folders/1wuhkZ3b5jKfoNIDfaEzrdg-KZVagk-lS?usp=sharing)
+The model files are too large to be uploaded on GitHub. Hence, download them from [here](https://drive.google.com/drive/folders/1wuhkZ3b5jKfoNIDfaEzrdg-KZVagk-lS?usp=sharing)
 
 Once the model files are downloaded, move them to the proper storage structure such that the main file can read them.
 Directory structure to follow:
@@ -91,7 +91,7 @@ Simply run the below command to launch the GUI
 ```
 python3 transcriber_gui.py
 ```
-Steps -
+Steps to use the GUI-
 1) Choose the language: English or German
 2) Choose input: Microphone or file upload
 3) Browse for the wav file if file upload chosen
@@ -102,7 +102,7 @@ The output of text and sentiment is displayed on the transcription window.
 Enjoy! :')
 
 **Note**: if you notice the GUI crashing, please remember to follow this procedure:
-Everytime you want to change between 'mic' and 'file upload', always remember to follow this sequence - 'click on language' -> 'click on mic / file' -> 'click on start speaking / transcribe wav'. If you want to change from file_upload to mic (or mic to file), always click on language first and then mic and then start speaking.
+Everytime you want to change between 'mic' and 'file upload', always remember to follow this sequence - 'click on language' -> 'click on mic / file' -> 'click on start speaking / transcribe wav'. If you want to change from file_upload to mic (or mic to file), always click on language first, then mic and then start speaking.
 
 ## References
 
