@@ -48,6 +48,7 @@ Install the prerequisites inside venv
 ```
 
 For sentiment analysis we use the corpora from textblob.
+
 run the following command to download it
 ```
 python -m textblob.download_corpora
