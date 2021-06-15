@@ -3,6 +3,7 @@
 ```
 A Linux based application that can transcribe audio file of English or German to text.
 Consecutively it can also detect the sentiment in the text.
+Works completely offline!
 ```
 Based on our published paper - [German Speech Recognition System using DeepSpeech](https://dl.acm.org/doi/abs/10.1145/3443279.3443313)
 
