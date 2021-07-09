@@ -130,16 +130,8 @@ title = {German Speech Recognition System Using DeepSpeech},
 year = {2020},
 isbn = {9781450377607},
 publisher = {Association for Computing Machinery},
-address = {New York, NY, USA},
 url = {https://doi.org/10.1145/3443279.3443313},
 doi = {10.1145/3443279.3443313},
-abstract = {German language open models and training schemes are rather rare. In
-this paper, we combined multiple German datasets and optimized the Deep-speech
-for training a real-time German speech-to-text model. A GUI is also proposed for functionality
-demonstration. Our model performs considerably well compared to other state-of-the-art
-since we utilized noisy data to replicate real-life scenarios. We released our fully
-trained German model along with its parameter configurations to promote the diversification
-of the open-source model for the German language.},
 booktitle = {Proceedings of the 4th International Conference on Natural Language Processing and Information Retrieval},
 pages = {102–106},
 numpages = {5},
