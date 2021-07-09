@@ -105,7 +105,7 @@ Enjoy! :')
 **Note**: if you notice the GUI crashing, please remember to follow this procedure:
 Everytime you want to change between 'mic' and 'file upload', always remember to follow this sequence - 'click on language' -> 'click on mic / file' -> 'click on start speaking / transcribe wav'. If you want to change from file_upload to mic (or mic to file), always click on language first, then mic and then start speaking.
 
-### References
+#### References
 
 Our report can be obtained from Research Gate -
 https://www.researchgate.net/project/Speech-Recognition-and-Emotion-Detection-in-English-and-German
@@ -119,7 +119,7 @@ https://www.liip.ch/en/blog/sentiment-detection-with-keras-word-embeddings-and-l
 German sentiment analysis -
 https://textblob-de.readthedocs.io
 
-## Bibliography
+### Bibliography
 
 If you find our work useful, kindly cite us:
 
